@@ -1,24 +1,24 @@
 #[cfg(test)]
-use crate::{is_palindrome, ListNode};
+use crate::{palindrome, ListNode};
 
 #[test]
 fn test_1() {
-    let list = ListNode::from(vec![1, 2, 2, 1]);
-    let result = is_palindrome(Some(list));
+    let list = ListNode::from(&vec![1, 2, 2, 1]);
+    let result = palindrome(Some(Box::new(list)));
     assert_eq!(result, true);
 }
 
 #[test]
 fn test_2() {
-    let list = ListNode::from(vec![1, 2]);
+    let list = ListNode::from(&vec![1, 2]);
 
-    let result = is_palindrome(Some(list));
+    let result = palindrome(Some(Box::new(list)));
     assert_eq!(result, false);
 }
 
 #[test]
 fn test_3() {
-    let list = ListNode::from(vec![
+    let list = ListNode::from(&vec![
         8, 5, 7, 3, 2, 6, 6, 7, 8, 6, 6, 3, 8, 6, 3, 8, 7, 3, 1, 6, 7, 6, 7, 6, 2, 9, 3, 6, 8, 5,
         2, 5, 1, 1, 6, 7, 8, 7, 6, 3, 0, 2, 8, 6, 5, 0, 3, 3, 2, 9, 7, 0, 5, 2, 7, 9, 0, 9, 1, 7,
         3, 4, 2, 6, 5, 2, 3, 2, 8, 9, 9, 6, 3, 1, 5, 2, 3, 7, 4, 5, 3, 6, 4, 6, 4, 0, 1, 4, 9, 6,
@@ -262,8 +262,6 @@ fn test_3() {
         9, 4, 6, 3, 4, 8, 1, 8, 4, 9, 3, 6, 0, 8, 5, 8, 4, 3, 6, 5, 1,
     ]);
 
-    println!("{:#?}", &list);
-
-    let result = is_palindrome(Some(list));
+    let result = palindrome(Some(Box::new(list)));
     assert_eq!(result, false);
 }
